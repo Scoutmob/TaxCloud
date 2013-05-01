@@ -9,7 +9,6 @@ module TaxCloud
       attrs.each do |sym, val|
         self.send "#{sym}=", val
       end
-      super
     end
 
     def get_tic(index)
