@@ -1,9 +1,10 @@
 module TaxCloud
 
   class ResponseMessage
-    # response_type is a message_type
+    include TaxCloud::ResponseType
+
     # message is a string
-    attr_accessor :response_type, :message
+    attr_accessor :message
   end
 
 end

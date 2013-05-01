@@ -1,9 +1,30 @@
 module TaxCloud
 
-  class ResponseType
-    # response_type is a MessageType
-    # message is a string
-    attr_accessor :response_type, :message
+  module ResponseType
+
+    ERROR = 'Error'
+    WARNING = 'Warning'
+    INFORMATIONAL = 'Informational'
+    OK = 'OK'
+
+    attr_accessor :response_type
+
+    def ok?
+      @response_type == OK
+    end
+
+    def warning?
+      @response_type == WARNING
+    end
+
+    def informational?
+      @response_type == INFORMATIONAL
+    end
+
+    def error?
+      @response_type == ERROR
+    end
+
   end
 
 end
