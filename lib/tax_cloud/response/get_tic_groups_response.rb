@@ -1,7 +1,8 @@
+require 'tax_cloud/response/response_base'
+require 'tax_cloud/tic_group'
+
 module TaxCloud
   class GetTICGroupsResponse < ResponseBase
-
-    require 'tax_cloud/tic_group'
 
     def initialize(attrs = {})
       @raw_tic_groups = attrs[:tic_groups]

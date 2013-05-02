@@ -1,5 +1,7 @@
-module TaxCloud
+require 'tax_cloud/response/response_base'
+require 'tax_cloud/cart_item_tax'
 
+module TaxCloud
   class LookupResponse < ResponseBase
     attr_reader :cart_id
 

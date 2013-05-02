@@ -1,3 +1,6 @@
+require 'tax_cloud/response/response_base'
+require 'tax_cloud/address'
+
 module TaxCloud
   class VerifyAddressResult < ResponseBase
     attr_reader :address1, :address2, :city, :state, :zip5, :zip4

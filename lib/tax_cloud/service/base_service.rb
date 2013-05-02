@@ -1,7 +1,7 @@
+require 'tax_cloud/service/base_service'
+
 module TaxCloud
-
   class BaseService
-
     attr_accessor :client
 
     def initialize(client)
@@ -9,5 +9,5 @@ module TaxCloud
     end
 
   end
-
 end
+

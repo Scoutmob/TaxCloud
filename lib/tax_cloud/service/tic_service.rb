@@ -1,8 +1,8 @@
-module TaxCloud
-  require "tax_cloud/service/base_service"
-  require 'tax_cloud/response/get_ti_cs_response'
-  require 'tax_cloud/response/get_tic_groups_response'
+require "tax_cloud/service/base_service"
+require 'tax_cloud/response/get_ti_cs_response'
+require 'tax_cloud/response/get_tic_groups_response'
 
+module TaxCloud
   class TICService < BaseService
 
     def get_tics(api_id, api_key)
@@ -32,5 +32,5 @@ module TaxCloud
     end
 
   end
-
 end
+

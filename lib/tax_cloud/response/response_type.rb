@@ -1,5 +1,4 @@
 module TaxCloud
-
   module ResponseType
 
     ERROR = 'Error'
@@ -26,5 +25,5 @@ module TaxCloud
     end
 
   end
-
 end
+

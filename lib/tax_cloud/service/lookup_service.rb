@@ -1,5 +1,9 @@
-module TaxCloud
+require 'tax_cloud/service/base_service'
+require 'tax_cloud/response/lookup_response'
+require 'tax_cloud/cartitem'
+require 'tax_cloud/address'
 
+module TaxCloud
   class LookupService < BaseService
 
     def lookup(api_id, api_key, customer_id, cart_id, origin, destination, cart_items)
@@ -15,5 +19,5 @@ module TaxCloud
     end
 
   end
-
 end
+

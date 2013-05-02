@@ -1,5 +1,8 @@
-module TaxCloud
+require 'tax_cloud/service/base_service'
+require 'tax_cloud/response/returned_response'
+require 'tax_cloud/cartitem'
 
+module TaxCloud
   # If you have previously completed an order you can return one or more of the items in the order
   class ReturnedService < BaseService
 
@@ -13,5 +16,5 @@ module TaxCloud
     end
 
   end
-
 end
+

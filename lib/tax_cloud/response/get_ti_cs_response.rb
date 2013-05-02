@@ -1,7 +1,7 @@
+require 'tax_cloud/response/response_base'
+require 'tax_cloud/tic'
+
 module TaxCloud
-
-  require 'tax_cloud/tic'
-
   class GetTICsResponse < ResponseBase
 
     def initialize(attrs = {})
@@ -26,3 +26,4 @@ module TaxCloud
 
   end
 end
+

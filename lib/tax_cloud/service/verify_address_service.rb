@@ -1,7 +1,8 @@
+require 'tax_cloud/service/base_service'
+require 'tax_cloud/response/verify_address_result'
+require 'tax_cloud/address'
+
 module TaxCloud
-
-  require "tax_cloud/service/base_service"
-
   class VerifyAddressService < BaseService
 
     def verify_address(api_id, api_key, usps_id, address)
@@ -22,5 +23,5 @@ module TaxCloud
     end
 
   end
-
 end
+

@@ -1,5 +1,8 @@
-module TaxCloud
+require 'tax_cloud/response/response_base'
+require 'tax_cloud/response/response_type'
+require 'tax_cloud/response/response_message'
 
+module TaxCloud
   class ResponseBase
     include TaxCloud::ResponseType
 
@@ -25,5 +28,5 @@ module TaxCloud
     end
 
   end
-
 end
+

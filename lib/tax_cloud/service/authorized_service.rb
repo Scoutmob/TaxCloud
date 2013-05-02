@@ -1,5 +1,9 @@
-module TaxCloud
+require 'tax_cloud/service/base_service'
+require 'tax_cloud/response/authorized_with_capture_response'
+require 'tax_cloud/response/authorized_response'
+require 'tax_cloud/response/captured_response'
 
+module TaxCloud
   class AuthorizedService < BaseService
 
     def authorized_with_capture(api_id, api_key, customer_id, cart_id, order_id, date_authorized, date_captured)
@@ -32,5 +36,5 @@ module TaxCloud
     end
 
   end
-
 end
+
