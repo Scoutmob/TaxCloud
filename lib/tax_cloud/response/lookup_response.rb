@@ -1,20 +1,29 @@
 module TaxCloud
 
   class LookupResponse < ResponseBase
-
-    attr_accessor :cart_id, :cart_items_response
+    attr_reader :cart_id
 
     def initialize(attrs = {})
-      attrs.each do |sym, val|
-        self.send "#{sym}=", val
+      @cart_id = attrs[:cart_id]
+      @raw_cart_items_response = attrs[:cart_items_response]
+      super
+    end
+
+    def taxes
+      @taxes ||= parse_cart_items_response(@raw_cart_items_response)
+    end
+
+    protected
+    def parse_cart_items_response(raw_cart_items_response)
+      if raw_cart_items_response.nil?
+        []
+      else
+        items = raw_cart_items_response[:cart_item_response]
+        items = [items].flatten # may be single element or array.
+        items.collect{|tax| TaxCloud::CartItemTax.new(tax)}
       end
     end
 
-    def cart_items_response
-      response = TaxCloud::CartItemsResponse.new(@cart_items_response)
-    end
-
   end
-
 end
 
