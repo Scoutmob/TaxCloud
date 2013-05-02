@@ -3,25 +3,26 @@ module TaxCloud
   require 'tax_cloud/tic'
 
   class GetTICsResponse < ResponseBase
-    attr_accessor :ti_cs
 
     def initialize(attrs = {})
-      attrs.each do |sym, val|
-        self.send "#{sym}=", val
+      @raw_tics = attrs[:ti_cs]
+      super
+    end
+
+    def tics
+      @tics ||= parse_tics(@raw_tics)
+    end
+
+    protected
+    def parse_tics(raw_tics)
+      if raw_tics.nil?
+        []
+      else
+        raw_tics[:tic].collect do |tic|
+          TaxCloud::TIC.new(tic)
+        end
       end
     end
 
-    def get_tic(index)
-      tics = get_tics[index]
-    end
-
-    def get_tics
-      tics = []
-      ti_cs[:tic].each do |a_tic|
-        tic = TaxCloud::TIC.new(a_tic)
-        tics << tic
-      end
-      tics
-    end
   end
 end

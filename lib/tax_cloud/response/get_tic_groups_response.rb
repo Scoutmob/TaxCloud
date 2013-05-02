@@ -3,23 +3,24 @@ module TaxCloud
 
     require 'tax_cloud/tic_group'
 
-    attr_accessor :tic_groups
-
     def initialize(attrs = {})
-      attrs.each do |sym, val|
-        self.send "#{sym}=", val
+      @raw_tic_groups = attrs[:tic_groups]
+      super
+    end
+
+    def tic_groups
+      @tic_groups ||= parse_tic_groups(@raw_tic_groups)
+    end
+
+    protected
+    def parse_tic_groups(raw_tic_groups)
+      if raw_tic_groups.nil?
+        []
+      else
+        raw_tic_groups[:tic_group].collect{|g| TaxCloud::TICGroup.new(g)}
       end
     end
 
-    def get_tic_groups
-      groups = []
-      tic_groups[:tic_group].each do |group|
-        tic_group = TaxCloud::TICGroup.new(group)
-        groups << tic_group
-      end
-      groups
-    end
   end
-
-
 end
+
