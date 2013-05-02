@@ -19,12 +19,8 @@ module TaxCloud
         []
       else
         messages = raw_messages[:response_message]
-
-        if messages.is_a?(Array)  # It's an array of response messages
-          messages.collect{|m| TaxCloud::ResponseMessage.new(m) }
-        else # Assume it's a single message
-          [TaxCloud::ResponseMessage.new(messages)]
-        end
+        messages = [messages].flatten # possibly an array or a single element
+        messages.collect{|m| TaxCloud::ResponseMessage.new(m) }
       end
     end
 
